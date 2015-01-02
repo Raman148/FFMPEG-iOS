@@ -2,6 +2,12 @@
 
 [FFmpeg](http://www.ffmpeg.org) static libraries compiled for armv7, armv7s and x86_64 for use in iOS development.
 
+## Prerequisite
+
+```
+brew install rtmpdump
+```
+
 ## Usage
 
 Just drag the `/dependencies/include` and `/dependencies/lib` folders into your Xcode project and add them to your build target. If you want to, you can modify the `build-ffmpeg.sh` script to suit your needs and recompile.
