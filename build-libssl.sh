@@ -25,7 +25,7 @@
 VERSION="1.0.1j"
 SDKVERSION="7.1"
 MINIOSVERSION="6.0"
-VERIFYGPG=true
+VERIFYGPG=false
 
 ###########################################################################
 #
