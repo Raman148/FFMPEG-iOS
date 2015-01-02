@@ -126,7 +126,7 @@ for ARCH in ${ARCHS}
 do
     if [ "${ARCH}" == "i386" ] || [ "${ARCH}" == "x86_64" ]; then
         PLATFORM="iPhoneSimulator"
-        EXTRA_CONFIG="--arch=${ARCH} --target-os=darwin --enable-cross-compile"
+        EXTRA_CONFIG="--arch=${ARCH} --target-os=darwin --enable-cross-compile --disable-asm --disable-mmx --assert-level=2"
         EXTRA_CFLAGS="-arch ${ARCH} -miphoneos-version-min=${MINIOSVERSION} ${DEBUG_CFLAGS}"
         EXTRA_LDFLAGS="-miphoneos-version-min=${MINIOSVERSION} ${DEBUG_LDFLAGS}"
     else
@@ -145,7 +145,7 @@ do
     if [ ! -d "$OUTPUT_DIR" ]; then
         mkdir -p ${OUTPUT_DIR}
 
-        ./configure --enable-static --enable-pic --enable-small --enable-librtmp --enable-openssl ${DEBUG_CONFIG_ARGS} \
+        ./configure --enable-static --enable-pic --enable-small --enable-librtmp --enable-openssl --disable-debug --enable-optimizations ${DEBUG_CONFIG_ARGS} \
         --cc=${CCACHE}${DEVELOPER}/usr/bin/gcc ${EXTRA_CONFIG} \
         --prefix="${INTERDIR}/${PLATFORM}${SDKVERSION}-${ARCH}.sdk" \
         --sysroot=${DEVELOPER}/Platforms/${PLATFORM}.platform/Developer/SDKs/${PLATFORM}${SDKVERSION}.sdk \
